@@ -1,6 +1,7 @@
 package dev.danvega.serverlessapi.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ import dev.danvega.serverlessapi.services.LeadsService;
 
 @RestController
 @RequestMapping("/api")
-public class RailwayRestController {
+public class LeadsRestController {
 	
 	@Autowired
 	private LeadsService leadsService;

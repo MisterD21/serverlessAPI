@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.Document;
-import org.bson.json.JsonWriterSettings;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
@@ -14,7 +13,6 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
 
 public class TestClass {
 	
@@ -95,10 +93,7 @@ public class TestClass {
 		        // Send a ping to confirm a successful connection
 		        MongoDatabase database = mongoClient.getDatabase("prolead");
 		        MongoCollection<Document> collection = database.getCollection("leads");
-		        String objectIdString = "652d16bcb80f3702bfa96583";
-		        org.bson.types.ObjectId objectId = new org.bson.types.ObjectId(objectIdString);
-		        org.bson.conversions.Bson filter = Filters.eq("_id", objectId);
-
+		        
 		        FindIterable<Document> findIterable = collection.find().limit(10);
 		        //JsonWriterSettings jsonWriterSettings = JsonWriterSettings.builder().outputMode(JsonWriterSettings.OutputMode.RELAXED).build();
 		        List<String> list = new ArrayList<String>();
